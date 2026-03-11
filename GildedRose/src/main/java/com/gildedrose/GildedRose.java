@@ -10,7 +10,7 @@ class GildedRose {
     public void updateQuality() {
         // pour chaque item
         for (int i = 0; i < items.length; i++) {
-            // si l'item n'est pas Aged Brie et le Backstage passes
+            // si l'item n'est pas Aged Brie ni le Backstage passes
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 // si la qualité est plus grande que 0
