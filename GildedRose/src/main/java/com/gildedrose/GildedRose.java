@@ -50,27 +50,16 @@ class GildedRose {
 
 
     private void updateBackstage(Item item) {
-        // si la qualité de l'item est en dessous de 50
-        if (item.quality < QUALITE_MAX) {
-            // on augmente sa qualité de 1
-            item.quality++;
+        if (item.sellIn < 6) {
+            item.quality = Math.min(item.quality + 3, QUALITE_MAX);
+        } else if (item.sellIn < 11) {
+            item.quality = Math.min(item.quality + 2, QUALITE_MAX);
+        } else {
+            item.quality = Math.min(item.quality + 1, QUALITE_MAX);
         }
 
-        if (item.sellIn < PRIX_MAX1) {
-            if (item.quality < QUALITE_MAX) {
-                item.quality++;
-            }
-        }
+        item.sellIn--;
 
-        if (item.sellIn < PRIX_MAX2) {
-            if (item.quality < QUALITE_MAX) {
-                item.quality++;
-            }
-        }
-
-        item.sellIn = item.sellIn - 1;
-
-        // si le prix de l'item est en dessous de 0
         if (item.sellIn < 0) {
             item.quality = 0;
         }
