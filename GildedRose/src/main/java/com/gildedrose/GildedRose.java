@@ -13,6 +13,34 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
+            switch (this.items[i].name) {
+                case "Aged Brie":
+                    updateAgedBrie();
+                    break;
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    updateBackstage();
+                    break;
+                case "Sulfuras, Hand of Ragnaros":
+                    updateSulfuras();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void updateSulfuras() {
+    }
+
+    private void updateBackstage() {
+    }
+
+    private void updateAgedBrie() {
+    }
+
+
+    public void updateQuality2() {
+        for (int i = 0; i < items.length; i++) {
             // si l'item n'est pas Aged Brie ni le Backstage passes
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
