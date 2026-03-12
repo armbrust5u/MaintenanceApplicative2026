@@ -3,12 +3,15 @@ package com.gildedrose;
 class GildedRose {
     Item[] items;
 
+    final int QUALITE_MAX = 50;
+    final int PRIX_MAX1 = 11;
+    final int PRIX_MAX2 = 6;
+
     public GildedRose(Item[] items) {
         this.items = items;
     }
 
     public void updateQuality() {
-        // pour chaque item
         for (int i = 0; i < items.length; i++) {
             // si l'item n'est pas Aged Brie ni le Backstage passes
             if (!items[i].name.equals("Aged Brie")
@@ -21,28 +24,28 @@ class GildedRose {
                         items[i].quality = items[i].quality - 1;
                     }
                 }
-            // sinon
+                // sinon
             } else {
                 // si la qualité de l'item est en dessous de 50
-                if (items[i].quality < 50) {
+                if (items[i].quality < QUALITE_MAX) {
                     // on augmente sa qualité de 1
                     items[i].quality = items[i].quality + 1;
 
                     // si le nom de l'item est le Backstage passes
                     if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         // si son prix est en dessous de 11
-                        if (items[i].sellIn < 11) {
+                        if (items[i].sellIn < PRIX_MAX1) {
                             // si sa qualité est en dessous de 50
-                            if (items[i].quality < 50) {
+                            if (items[i].quality < QUALITE_MAX) {
                                 // on augmente sa qualité de 1
                                 items[i].quality = items[i].quality + 1;
                             }
                         }
 
-                        // si son prix de vente est en dessous de 6
-                        if (items[i].sellIn < 6) {
+                        // si son prix est en dessous de 6
+                        if (items[i].sellIn < PRIX_MAX2) {
                             // si sa qualité est en dessous de 50
-                            if (items[i].quality < 50) {
+                            if (items[i].quality < QUALITE_MAX) {
                                 // on augmente sa qualité de 1
                                 items[i].quality = items[i].quality + 1;
                             }
@@ -71,15 +74,15 @@ class GildedRose {
                                 items[i].quality = items[i].quality - 1;
                             }
                         }
-                    // sinon
+                        // sinon
                     } else {
                         // met la qualité à 0
                         items[i].quality = items[i].quality - items[i].quality;
                     }
-                // sinon
+                    // sinon
                 } else {
                     // si la qualité est en desous de 50
-                    if (items[i].quality < 50) {
+                    if (items[i].quality < QUALITE_MAX) {
                         // augmenter la qualité de 1
                         items[i].quality = items[i].quality + 1;
                     }
