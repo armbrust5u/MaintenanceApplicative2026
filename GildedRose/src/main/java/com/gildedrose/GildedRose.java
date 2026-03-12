@@ -77,7 +77,7 @@ class GildedRose {
                         // sinon
                     } else {
                         // met la qualité à 0
-                        items[i].quality = items[i].quality - items[i].quality;
+                        items[i].quality = 0;
                     }
                     // sinon
                 } else {
