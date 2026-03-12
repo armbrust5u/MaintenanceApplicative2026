@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GildedRoseTest {
 
     @Test
-    void agedBriePetiteQuality() {
+    void testagedBriePetiteQuality() {
         Item[] items = new Item[] { new Item("Aged Brie", 10, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -15,7 +15,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void agedBrie() {
+    void testagedBrie() {
         Item[] items = new Item[] { new Item("Aged Brie", 60, 60) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -23,7 +23,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void itemRandom() {
+    void testitemRandom() {
         Item[] items = new Item[] { new Item("item", 60, 60) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -31,7 +31,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void backstagePassMoyenPrix() {
+    void testbackstagePassMoyenPrix() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -39,7 +39,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void backstagePassPetitPrix() {
+    void testbackstagePassPetitPrix() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 4, 5) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -47,7 +47,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void backstagePass3() {
+    void testbackstagePass3() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 4, 5) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -55,7 +55,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void itemGratuitBasseQualite() {
+    void testitemGratuitBasseQualite() {
         Item[] items = new Item[] { new Item("item", 0, 50) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -63,7 +63,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void agedBrieGratuit() {
+    void testagedBrieGratuit() {
         Item[] items = new Item[] { new Item("Aged Brie", 0, 60) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -71,7 +71,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void backStageGratuit() {
+    void testbackStageGratuit() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 60) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -79,7 +79,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void sulfurasGratuit() {
+    void testsulfurasGratuit() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 0, 60) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -87,7 +87,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void agedBrieBasseQualiteGratuit() {
+    void testagedBrieBasseQualiteGratuit() {
         Item[] items = new Item[] { new Item("Aged Brie", -5, 30) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -95,7 +95,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void sulfurasLowQualite() {
+    void testsulfurasLowQualite() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 30, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -103,7 +103,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void backStageHighVente() {
+    void testbackStageHighVente() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 50, 45) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -111,7 +111,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void backStageHighQuality() {
+    void testbackStageHighQuality() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 45) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -119,10 +119,33 @@ class GildedRoseTest {
     }
 
     @Test
-    void backStageQualityBorder49() {
+    void testbackStageQualityBorder49() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(50, app.items[0].quality);
+    }
+
+    @Test
+    void testsulfurasLowPrice() {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", -5, 40) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(40, app.items[0].quality);
+    }
+
+    @Test
+    void testitemLowPriceLowQuality() {
+        Item[] items = new Item[] { new Item("item", -5, -5) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(-5, app.items[0].quality);
+    }
+
+    @Test
+    void testToString() {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 50, 50) };
+        String res = items[0].toString();
+        assertEquals("Sulfuras, Hand of Ragnaros, 50, 50", res);
     }
 }

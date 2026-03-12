@@ -1,2 +1,2 @@
 /.idea/
-/GildedRose/target/
+/GildedRose/target/test-classes/com/gildedrose/*.class
