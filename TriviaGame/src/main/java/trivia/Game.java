@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class Game implements IGame {
+   private QuestionDeck questionDeck = new QuestionDeck();
    ArrayList<Player> players = new ArrayList<>();
 
    Map<Category, LinkedList<String>> questions = new HashMap<>();
@@ -87,7 +88,7 @@ public class Game implements IGame {
 
    private void askQuestion() {
       Category category = currentCategory();
-      System.out.println(questions.get(category).removeFirst());
+      System.out.println(questionDeck.drawQuestion(category));
    }
 
 
