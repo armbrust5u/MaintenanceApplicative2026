@@ -95,16 +95,18 @@ public class Game implements IGame {
 
 
    private String currentCategory() {
-      if (players.get(currentPlayer).place - 1 == 0) return "Pop";
-      if (players.get(currentPlayer).place - 1 == 4) return "Pop";
-      if (players.get(currentPlayer).place - 1 == 8) return "Pop";
-      if (players.get(currentPlayer).place - 1 == 1) return "Science";
-      if (players.get(currentPlayer).place - 1 == 5) return "Science";
-      if (players.get(currentPlayer).place - 1 == 9) return "Science";
-      if (players.get(currentPlayer).place - 1 == 2) return "Sports";
-      if (players.get(currentPlayer).place - 1 == 6) return "Sports";
-      if (players.get(currentPlayer).place - 1 == 10) return "Sports";
-      return "Rock";
+      int position = (players.get(currentPlayer).place - 1) % 4;
+
+      switch (position) {
+         case 0:
+            return "Pop";
+         case 1:
+            return "Science";
+         case 2:
+            return "Sports";
+         default:
+            return "Rock";
+      }
    }
 
    public boolean handleCorrectAnswer() {
