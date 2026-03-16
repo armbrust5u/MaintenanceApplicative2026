@@ -83,19 +83,13 @@ public class Game implements IGame {
    }
 
    private void askQuestion() {
-      switch (currentCategory()) {
-         case POP:
-            System.out.println(popQuestions.removeFirst());
-            break;
-         case SCIENCE:
-            System.out.println(scienceQuestions.removeFirst());
-            break;
-         case SPORTS:
-            System.out.println(sportsQuestions.removeFirst());
-            break;
-         case ROCK:
-            System.out.println(rockQuestions.removeFirst());
-            break;
+      Category category = currentCategory();
+
+      switch (category) {
+         case POP -> System.out.println(popQuestions.removeFirst());
+         case SCIENCE -> System.out.println(scienceQuestions.removeFirst());
+         case SPORTS -> System.out.println(sportsQuestions.removeFirst());
+         case ROCK -> System.out.println(rockQuestions.removeFirst());
       }
    }
 
