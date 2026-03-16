@@ -1,26 +1,29 @@
 package trivia;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
-// REFACTOR ME
 public class Game implements IGame {
    ArrayList<Player> players = new ArrayList<>();
 
-   LinkedList<String> popQuestions = new LinkedList<>();
-   LinkedList<String> scienceQuestions = new LinkedList<>();
-   LinkedList<String> sportsQuestions = new LinkedList<>();
-   LinkedList<String> rockQuestions = new LinkedList<>();
+   Map<Category, LinkedList<String>> questions = new HashMap<>();
 
    int currentPlayer = 0;
    boolean isGettingOutOfPenaltyBox;
 
    public Game() {
+      questions.put(Category.POP, new LinkedList<>());
+      questions.put(Category.SCIENCE, new LinkedList<>());
+      questions.put(Category.SPORTS, new LinkedList<>());
+      questions.put(Category.ROCK, new LinkedList<>());
+
       for (int i = 0; i < 50; i++) {
-         popQuestions.addLast("Pop Question " + i);
-         scienceQuestions.addLast(("Science Question " + i));
-         sportsQuestions.addLast(("Sports Question " + i));
-         rockQuestions.addLast(createRockQuestion(i));
+         questions.get(Category.POP).addLast("Pop Question " + i);
+         questions.get(Category.SCIENCE).addLast("Science Question " + i);
+         questions.get(Category.SPORTS).addLast("Sports Question " + i);
+         questions.get(Category.ROCK).addLast(createRockQuestion(i));
       }
    }
 
@@ -84,13 +87,7 @@ public class Game implements IGame {
 
    private void askQuestion() {
       Category category = currentCategory();
-
-      switch (category) {
-         case POP -> System.out.println(popQuestions.removeFirst());
-         case SCIENCE -> System.out.println(scienceQuestions.removeFirst());
-         case SPORTS -> System.out.println(sportsQuestions.removeFirst());
-         case ROCK -> System.out.println(rockQuestions.removeFirst());
-      }
+      System.out.println(questions.get(category).removeFirst());
    }
 
 
