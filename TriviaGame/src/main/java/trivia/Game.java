@@ -97,16 +97,12 @@ public class Game implements IGame {
    private Category currentCategory() {
       int position = (currentPlayer().place - 1) % 4;
 
-      switch (position) {
-         case 0:
-            return Category.POP;
-         case 1:
-            return Category.SCIENCE;
-         case 2:
-            return Category.SPORTS;
-         default:
-            return Category.ROCK;
-      }
+       return switch (position) {
+           case 0 -> Category.POP;
+           case 1 -> Category.SCIENCE;
+           case 2 -> Category.SPORTS;
+           default -> Category.ROCK;
+       };
    }
 
    public boolean handleCorrectAnswer() {
