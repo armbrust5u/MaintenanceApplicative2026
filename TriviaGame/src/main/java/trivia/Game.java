@@ -78,7 +78,7 @@ public class Game implements IGame {
               + "'s new location is "
               + player.place);
 
-      System.out.println("The category is " + currentCategory());
+      System.out.println("The category is " + currentCategory().label());
       askQuestion();
    }
 
