@@ -7,7 +7,7 @@ import java.util.Queue;
 
 public class QuestionDeck {
 
-    private Map<Category, Queue<String>> questions = new HashMap<>();
+    private final Map<Category, Queue<String>> questions = new HashMap<>();
 
     public QuestionDeck() {
         for (Category c : Category.values()) {

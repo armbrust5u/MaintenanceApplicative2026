@@ -6,7 +6,8 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class Game implements IGame {
-   private QuestionDeck questionDeck = new QuestionDeck();
+   private final QuestionDeck questionDeck = new QuestionDeck();
+   private Board board = new Board();
    ArrayList<Player> players = new ArrayList<>();
 
    Map<Category, LinkedList<String>> questions = new HashMap<>();
@@ -19,17 +20,6 @@ public class Game implements IGame {
       questions.put(Category.SCIENCE, new LinkedList<>());
       questions.put(Category.SPORTS, new LinkedList<>());
       questions.put(Category.ROCK, new LinkedList<>());
-
-      for (int i = 0; i < 50; i++) {
-         questions.get(Category.POP).addLast("Pop Question " + i);
-         questions.get(Category.SCIENCE).addLast("Science Question " + i);
-         questions.get(Category.SPORTS).addLast("Sports Question " + i);
-         questions.get(Category.ROCK).addLast(createRockQuestion(i));
-      }
-   }
-
-   public String createRockQuestion(int index) {
-      return "Rock Question " + index;
    }
 
    public boolean isPlayable() {
@@ -75,7 +65,7 @@ public class Game implements IGame {
    private void printRoll(int roll) {
       Player player = currentPlayer();
 
-      player.place = player.place + roll;
+      player.place = board.move(player.place, roll);
       if (player.place > 12) player.place = player.place - 12;
 
       System.out.println(player.name
