@@ -72,7 +72,7 @@ class MyCalendarTest {
     void dateApresFaux() {
         DateEvenement date1 = new DateEvenement(LocalDateTime.of(2025, 6, 10, 9, 0));
         DateEvenement date2 = new DateEvenement(LocalDateTime.of(2025, 6, 10, 14, 0));
-        assertTrue(date1.estApres(date2));
+        assertFalse(date1.estApres(date2));
     }
 
     @Test
