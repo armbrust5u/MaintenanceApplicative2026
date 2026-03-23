@@ -1,11 +1,13 @@
-package com.mycalendar;
+package com.mycalendar.events;
+
+import com.mycalendar.*;
 
 public class RendezVousPersonnel implements Evenement {
     private final EventId id;
     private final TitreEvenement titre;
     private final Proprietaire proprietaire;
     private final DateEvenement dateDebut;
-    private final DureeEvenement duree;
+    final DureeEvenement duree;
 
     public RendezVousPersonnel(EventId id, TitreEvenement titre, Proprietaire proprietaire,
                                DateEvenement dateDebut, DureeEvenement duree) {
