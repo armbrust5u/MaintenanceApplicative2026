@@ -3,6 +3,7 @@ package com.mycalendar;
 import com.mycalendar.events.EvenementPeriodique;
 import com.mycalendar.events.RendezVousPersonnel;
 import com.mycalendar.events.Reunion;
+import com.mycalendar.valueObject.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.mycalendar;
+package com.mycalendar.valueObject;
 
 public record LieuReunion(String valeur) {
     public LieuReunion {

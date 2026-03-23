@@ -1,8 +1,8 @@
 package com.mycalendar.events;
 
-import com.mycalendar.DateEvenement;
-import com.mycalendar.EventId;
-import com.mycalendar.TitreEvenement;
+import com.mycalendar.valueObject.DateEvenement;
+import com.mycalendar.valueObject.EventId;
+import com.mycalendar.valueObject.TitreEvenement;
 
 public interface Evenement {
     EventId id();

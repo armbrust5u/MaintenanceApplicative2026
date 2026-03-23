@@ -1,4 +1,4 @@
-package com.mycalendar;
+package com.mycalendar.valueObject;
 
 public record FrequenceEvenement(int jours) {
     public FrequenceEvenement {

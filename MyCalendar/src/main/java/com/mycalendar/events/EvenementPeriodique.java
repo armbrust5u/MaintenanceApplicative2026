@@ -1,6 +1,6 @@
 package com.mycalendar.events;
 
-import com.mycalendar.*;
+import com.mycalendar.valueObject.*;
 
 public class EvenementPeriodique implements Evenement {
     private final EventId id;

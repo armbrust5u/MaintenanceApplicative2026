@@ -1,4 +1,4 @@
-package com.mycalendar;
+package com.mycalendar.valueObject;
 
 public record DureeEvenement(int minutes) {
     public DureeEvenement {

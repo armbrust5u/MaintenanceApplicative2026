@@ -1,6 +1,6 @@
 package com.mycalendar.events;
 
-import com.mycalendar.*;
+import com.mycalendar.valueObject.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
