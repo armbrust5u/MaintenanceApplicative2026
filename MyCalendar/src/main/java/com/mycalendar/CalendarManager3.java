@@ -25,7 +25,7 @@ public class CalendarManager {
     }
 
     public boolean conflit(Evenement e1, Evenement e2) {
-        return e1.estEnConflit(e2);
+        return e1.estEnConflit(e2) || e2.estEnConflit(e1);
     }
 
     public void afficherEvenements() {
